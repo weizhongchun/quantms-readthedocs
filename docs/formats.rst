@@ -117,7 +117,8 @@ OpenMS offers an open-source software C++ library (+ python bindings) for LC/MS 
 Multiple files from OpenMS ecosystem are use within quantms to store intermediate steps. Among these files are:
 
 - OpenMS' experimental design:
-    OpenMS has its own simplified, TSV-based `experimental design format <https://abibuilder.informatik.uni-tuebingen.de/archive/openms/Documentation/release/latest/html/classOpenMS_1_1ExperimentalDesign.html#details>`_.
+    OpenMS has its own simplified, TSV-based 
+    `experimental design format <https://abibuilder.cs.uni-tuebingen.de/archive/openms/Documentation/nightly/html/classOpenMS_1_1ExperimentalDesign.html>`_.
     It currently can be used as a replacement to SDRF, if all missing search engine parameters are given
     on the command line. This type of input might be deprecated in the future. Since SDRF will be converted to the
     this format plus a configuration table internally, it might be worthwhile to know the format for debugging purposes.
@@ -125,15 +126,15 @@ Multiple files from OpenMS ecosystem are use within quantms to store intermediat
 
 - idXML:
     An xml-based file format to store PSMs, peptide, and protein evidences. More information about the idXML can be
-    `found here <https://abibuilder.informatik.uni-tuebingen.de/archive/openms/Documentation/nightly/html/classOpenMS_1_1IdXMLFile.html>`__.
+    `found here <https://abibuilder.cs.uni-tuebingen.de/archive/openms/Documentation/nightly/html/classOpenMS_1_1IdXMLFile.html>`__.
 
 - consensusXML:
     An xml-based file format that extends idXML to include quantification data across multiple runs.
     More information about the consensusXML can be
-    `found here <https://abibuilder.informatik.uni-tuebingen.de/archive/openms/Documentation/nightly/html/classOpenMS_1_1ConsensusXMLFile.html>`__.
+    `found here <https://abibuilder.cs.uni-tuebingen.de/archive/openms/Documentation/nightly/html/classOpenMS_1_1ConsensusXMLFile.html>`__.
 
 The easiest way to parse these files is to use `pyopenms <https://pyopenms.readthedocs.io/en/latest/>`_
-with its `pandas dataframe conversion capabilities <https://pyopenms.readthedocs.io/en/latest/pandas_df_conversion.html>`__.
+with its `pandas dataframe conversion capabilities <https://pyopenms.readthedocs.io/en/latest/user_guide/export_pandas_dataframe.html>`__.
 
 |Get help on Slack|   |Report Issue| |Get help on GitHub Forum|
 
