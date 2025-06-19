@@ -28,5 +28,7 @@ Run the following command inside the `docs` folder to build the HTML:
 
 ```bash
 # build page in docs folder
+python setup_docs.py # downloads files from bigbio/quantms/docs folder, 
+                     # called in conf.py if built on Read The Docs.
 sphinx-build -n -W --keep-going -b html ./ ./_build/
 ```
