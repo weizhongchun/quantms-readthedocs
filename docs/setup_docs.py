@@ -41,6 +41,14 @@ def download_output(output_path="quantms_output.md"):
         print(f"Output file saved to {output_path}")
     else:
         print(f"Failed to download the output format files from: {OUTPUT_URL}")
+        
+    with open(output_path, "r") as f:
+        content = f.readlines()
+    
+    content[0] = '# quantms outputs\n'
+    
+    with open(output_path, "w") as f:
+        f.writelines(content)
 
 
 if __name__ == "__main__":
