@@ -5,20 +5,21 @@ OUTPUT_URL = (
 )
 
 
-def download_file(url, save_path):
+def download_file(url, save_path, timeout=20):
     """
     Download a file from a URL and save it to the specified path.
 
     Args:
         url (str): URL of the file to download
         save_path (str): Path where the downloaded file will be saved
+        timeout (int): Timeout for the download request in seconds
 
     Returns:
         bool: True if download was successful, False otherwise
     """
 
     # Send GET request
-    response = requests.get(url, stream=True)
+    response = requests.get(url, stream=True, timeout=timeout)
     response.raise_for_status()  # Raise exception for HTTP errors
 
     # Write content to file
