@@ -63,7 +63,7 @@ html_static_path = ['_static']
 if os.environ.get("READTHEDOCS") == "True":
     # If we are building on ReadTheDocs, we need to download the output file
     # from the GitHub repository.
-    def download_files():
+    def download_files(_):
         from setup_docs import download_output
 
         # Download the output file
