@@ -1,7 +1,7 @@
 import requests
 
 OUTPUT_URL = (
-    "https://github.com/bigbio/quantms/raw/refs/heads/README_links/docs/output.md"
+    "https://raw.githubusercontent.com/bigbio/quantms/HEAD/docs/output.md"
 )
 
 
