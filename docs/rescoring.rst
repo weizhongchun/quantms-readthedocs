@@ -42,12 +42,18 @@ MS2PIP Integration
 - **Correlation Validation**: Implements robust validation ensuring sufficient correlation with experimental spectra
 
 MS2PIP Features (70+ features)
-| Feature Category | Examples |
-|-----------------|----------|
-| Spectral Correlations | SpecPearson, SpecCosineNorm, DotProd |
-| Ion-specific Metrics | IonBPearsonNorm, IonYPearsonNorm |
-| Statistical Measures | SpecMseNorm, MinAbsDiffNorm, MeanAbsDiffNorm |
+.. list-table:: MS2PIP Feature Examples
+   :header-rows: 1
+   :widths: 30 70
 
+   * - Feature Category
+     - Examples
+   * - Spectral Correlations
+     - SpecPearson, SpecCosineNorm, DotProd
+   * - Ion-specific Metrics
+     - IonBPearsonNorm, IonYPearsonNorm
+   * - Statistical Measures
+     - SpecMseNorm, MinAbsDiffNorm, MeanAbsDiffNorm
 AlphaPeptDeep Integration
 - **Generic Deep Learning Model**: Leverages advanced neural networks for fragment intensity prediction
 - **Transfer Learning**: Competes with MS2PIP to select the best-performing model
