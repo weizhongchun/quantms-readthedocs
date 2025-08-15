@@ -212,7 +212,7 @@ Usage Examples
 Troubleshooting
 ---------------
 
-**Feature generator failures**: This might result from incorrect model parameters or unsupported experimental types leading to poor model predictions. In such cases, MS2Rescore can be disabled using ``--ms2rescore false`` (default setting).
+**Feature generator failures**: These might result from incorrect model parameters or unsupported experimental types leading to poor model predictions. In such cases, MS2Rescore can be disabled using ``--ms2rescore false`` (default setting).
 
 **Memory and performance**: For large datasets, consider:
 
