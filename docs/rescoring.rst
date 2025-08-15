@@ -83,13 +83,20 @@ Signal Quality Metrics
 - **Weighted m/z Standard Deviation**: Estimates spectral complexity through intensity-weighted calculations
 
 Spectrum Quality Features (4 features)
-| Feature | Description |
-|---------|-------------|
-| Snr | Signal-to-noise ratio |
-| SpectralEntropy | Peak distribution uniformity |
-| FracTICinTop10Peaks | Fraction of total ion current in top peaks |
-| WeightedStdMz | Intensity-weighted m/z standard deviation |
+.. list-table:: Spectrum Quality Features
+   :header-rows: 1
+   :widths: 30 70
 
+   * - Feature
+     - Description
+   * - Snr
+     - Signal-to-noise ratio
+   * - SpectralEntropy
+     - Peak distribution uniformity
+   * - FracTICinTop10Peaks
+     - Fraction of total ion current in top peaks
+   * - WeightedStdMz
+     - Intensity-weighted m/z standard deviation
 SAGE Integration
 - **Seamless Feature Import**: Incorporates additional features from SAGE (Spectrum Agnostic Generation of Embeddings)
 - **Feature Validation**: Ensures proper formatting for OpenMS compatibility
