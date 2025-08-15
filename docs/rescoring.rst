@@ -60,13 +60,20 @@ DeepLC Optimization
 - **Best Peptide Tracking**: Maintains best retention time prediction for each peptide across multiple PSMs
 
 DeepLC Features (6 features)
-| Feature | Description |
-|---------|-------------|
-| ObservedRetentionTime | Experimental retention time |
-| PredictedRetentionTime | Model-predicted retention time |
-| RtDiff | Difference between observed and predicted |
-| *Best variants | Best predictions across multiple PSMs |
+.. list-table:: DeepLC Features
+   :header-rows: 1
+   :widths: 35 65
 
+   * - Feature
+     - Description
+   * - ObservedRetentionTime
+     - Experimental retention time
+   * - PredictedRetentionTime
+     - Model-predicted retention time
+   * - RtDiff
+     - Difference between observed and predicted
+   * - Best variants
+     - Best predictions across multiple PSMs
 Spectrum-Based Features
 
 Signal Quality Metrics
