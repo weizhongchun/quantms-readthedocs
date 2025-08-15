@@ -12,7 +12,7 @@ Peptide identification from fragment spectra
    idpep
    fdr
    modlocal
-   ms2rescore
+   rescoring
 
 The peptide identification workflow is the cornerstone of data-dependent acquisition (DDA)
 quantification methods such as LFQ or TMT. To identify proteins by mass spectrometry, the proteins of interest in the sample are
@@ -80,7 +80,7 @@ quantms provides two different algorithms and tools for re-scoring of the peptid
 and :doc:`idpep`. By default, quantms uses the :doc:`percolator` algorithm, which has proved to increase peptide
 identifications for :doc:`comet` and :doc:`msgf` search engines. quantms supports multiple strategies (individual run/by samples/by projects) to re-scoring.
 The former was shown to have less time consuming and comparable performance.
-quantms also introduces LC-MS predictors such as MS²PIP and DeepLC to boost identification rate by :doc:`ms2rescore`.
+quantms also introduces LC-MS predictors such as MS²PIP and DeepLC to boost identification rate by :doc:`rescoring`.
 
 .. note:: In some cases, Percolator fails to boost the original search engines, especially in cases like small datasets
           where the number of peptide identifications is insufficient). As an alternative, quantms offers a fully parameterized
