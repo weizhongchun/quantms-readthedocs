@@ -269,7 +269,7 @@ def generate_parameters(parameters_path="parameters.rst"):
             schema_obj = json.load(f)
     except Exception as exc:
         print(f"Warning: could not obtain or parse schema: {exc}")
-        schema_obj = {}
+        raise RuntimeError("Failed to obtain or parse schema, cannot generate parameters.rst")
 
     rst = _schema_to_rst(schema_obj)
     with open(parameters_path, "w") as f:
