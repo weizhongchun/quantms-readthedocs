@@ -8,7 +8,7 @@ Download proteomes from UniProt
 
 - We recommend downloading a reference proteome FASTA from `UniProt <https://www.uniprot.org/>`__ (Proteomes section).
 - Include isoforms if appropriate for your study; otherwise use canonical-only.
-- Make sure to include common contaminants (see below) and remove stop codons `*` if present (see :doc:`formats`).
+- Make sure to include common contaminants (see below) and remove stop codons `*` if present.
 
 Contaminants
 ------------
@@ -20,22 +20,14 @@ Curated contaminants FASTA (recommended)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - We provide a curated contaminants database with the ``CONTAM`` prefix that works out-of-the-box with pMultiQC, iBAQpy, DIA-NN and related tools.
-- Download the file from `quantms-test-datasets (contaminants-202105-uniprot.fasta) <https://github.com/bigbio/quantms-test-datasets/blob/quantms/databases/contaminants-202105-uniprot.fasta>`__ and append it to your target UniProt FASTA.
+- Download the file from `quantms-test-datasets (contaminants-202105-uniprot-description.fasta) <https://github.com/bigbio/quantms-test-datasets/blob/quantms/databases/contaminants-202105-uniprot-description.fasta>`__ and append it to your target UniProt FASTA.
 - Example concatenation:
 
   .. code-block:: bash
 
-     cat uniprot_proteome.fasta contaminants-202105-uniprot.fasta > proteome_plus_contaminants.fasta
-
-Contaminants databases (variants)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-- ``contaminants.fasta``: Broad contaminants set (merge of CRAP 202105 and MaxQuant contaminants). Link: `contaminants.fasta <https://github.com/bigbio/quantms-test-datasets/blob/quantms/databases/contaminants.fasta>`__.
-- ``contaminants-202105-uniprot.fasta``: Subset retaining only contaminants with UniProt accessions. Link: `contaminants-202105-uniprot.fasta <https://github.com/bigbio/quantms-test-datasets/blob/quantms/databases/contaminants-202105-uniprot.fasta>`__.
-- ``contaminants-202105-uniprot-description.fasta``: Same as above with explicit UniProt protein descriptions in headers (e.g., ``CONTAM_P00533_HUMAN``). This variant includes UniProt descriptions (with gene names when present), which DIA-NN uses for gene grouping. Prefer this file for DIA workflows. Link: `contaminants-202105-uniprot-description.fasta <https://github.com/bigbio/quantms-test-datasets/blob/quantms/databases/contaminants-202105-uniprot-description.fasta>`__.
+     cat uniprot_proteome.fasta contaminants-202105-uniprot-description.fasta > proteome_with_contaminants.fasta
 
 .. note:: For DIA (DIA-NN) pipelines, contaminants with UniProt descriptions (containing gene names) are recommended so that DIA-NN can form gene groups correctly. See repository listing: `quantms-test-datasets/databases <https://github.com/bigbio/quantms-test-datasets/tree/quantms/databases>`__.
-
 
 Decoys inside the workflow
 --------------------------
@@ -59,16 +51,16 @@ Example (conceptual) workflow using py-pgatk:
 
    # Generate a decoy-augmented database using DecoyPYrat strategy
    pypgatk_cli generate-decoy \
-     --input proteome.fasta \
+     --input proteome_with_contaminants.fasta \
      --method decoypyrat \
-     --output proteome_with_decoys.fasta
+     --output proteome_with_contaminants_and_decoys.fasta
 
 See the command implementation and options in the repository: Decoy generation command (``proteindb_decoy.py``) `link <https://github.com/bigbio/py-pgatk/blob/master/pypgatk/commands/proteindb_decoy.py>`__ and project homepage `link <https://github.com/bigbio/py-pgatk>`__.
 
 Entrapment proteins for additional FDR assessment
 -------------------------------------------------
 
-Beyond target-decoy, an additional strategy is to include entrapment proteins (from a species not present in the sample) to empirically assess false positives and refine DIA results.
+Beyond target-decoy, an additional strategy is to include entrapment proteins (from a species or simulated species not present in the sample) to empirically assess false positives and refine DIA results.
 
 - Concatenate a set of entrapment protein sequences (e.g., from an unrelated organism) to your target database. Keep them distinguishable (e.g., prefix ``ENTRAPMENT_``).
 - For DIA analyses (e.g., DIA-NN 1.8.*), entrapment can help evaluate FDR control, especially in multi-dataset integration scenarios.
