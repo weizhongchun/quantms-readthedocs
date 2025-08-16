@@ -51,6 +51,13 @@ You can use nextflow to directly pull from GitHub:
 
    nextflow run bigbio/quantms -profile test_lfq,<docker/singularity/podman/institute>
 
+.. note::
+   By default, the above command will use the latest released version of the quantms pipeline.
+   If you wish to use the development branch, add the ``-r dev`` parameter:
+
+   .. code-block:: bash
+
+      nextflow run bigbio/quantms -r dev -profile test_lfq,<docker/singularity/podman/institute>
 .. note:: Please check `nf-core/configs <https://github.com/nf-core/configs#documentation>`_ 
    to see if a custom config file to run nf-core pipelines already exists for your Institute. 
    If so, you can simply use `-profile <institute>` in your command. 
