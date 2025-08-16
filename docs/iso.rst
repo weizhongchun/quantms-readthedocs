@@ -52,6 +52,11 @@ Similarly, only proteotypic peptides (i.e. those matching to exactly one protein
 
 Similar to LFQ pipeline (:doc:`lfq`), the Protein quantification steps export the following file formats (read more here :doc:`formats`): mzTab, msstats output and OpenMS protein quantitation output.
 
+Relevant parameters
+-------------------
+
+- See `Protein Quantification (DDA) <parameters.html#protein-quantification-dda>`_ for isobaric settings like ``--labelling_type`` and top-N settings.
+- See `Isobaric analyzer <parameters.html#isobaric-analyzer>`_ for extraction options including ``--isotope_correction``, ``--iso_normalization``, and ``--reference_channel``.
 
 References
 ------------------

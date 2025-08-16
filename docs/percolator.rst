@@ -31,6 +31,12 @@ fallback for Percolator. It is more robust, works with less data but on average 
 For additional details on the main algorithm [KAELL2007]_, [THE2016]_, the q-value calculation method [KAELL2008A]_,
 and posterior error probability estimation [KAELL2008B]_ please refer to the publications.
 
+Relevant parameters
+-------------------
+
+- See `PSM re-scoring (general) <parameters.html#psm-re-scoring-general>`_ for options such as ``--ms2rescore``, ``--feature_generators``, ``--ms2_model``, and related tolerances.
+- See `PSM re-scoring (Percolator) <parameters.html#psm-re-scoring-percolator>`_ for specific options like ``--fdr_level``, ``--train_FDR``, and ``--test_FDR``.
+
 References
 -----------
 

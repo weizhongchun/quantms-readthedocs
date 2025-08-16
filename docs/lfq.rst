@@ -63,6 +63,11 @@ proteomicsLFQ supports two modes of alignment. **star** alignment and **tree gui
 
 By default, quantms uses start alignment method `alignment_order = 'star'` but the user can changed using the parameter alignment_order.
 
+Cross-reference to parameters
+-----------------------------
+
+- See `Protein Quantification (LFQ) <parameters.html#protein-quantification-lfq>`_ for options like ``--quantification_method``, ``--mass_recalibration``, ``--targeted_only``, and thresholds such as ``--feature_with_id_min_score``.
+
 Output
 ~~~~~~~~~~~~~~~~~~~~~
 

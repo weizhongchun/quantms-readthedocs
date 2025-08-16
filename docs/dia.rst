@@ -39,7 +39,7 @@ In order to analyze the DIA dataset the pipeline needs the acquisition method pr
 
 Similarly to the DDA workflow (see :doc:`lfq`, :doc:`iso`), we aim to make DIA-NN parallelize and distribute most of the tasks in the cluster.
 
-The first step of the workflow, translate the SDRF parameters into DIA-NN configuration parameters, including port-translation modification, enzyme, etc. For the developers and bioinformaticians, the details can be found in `diann to parameters <https://github.com/bigbio/quantms/blob/dev/bin/prepare_diann_parameters.py>`_ .
+The first step of the workflow translates the SDRF parameters into DIA-NN configuration parameters, including post-translation modifications, enzyme, etc. For developers and bioinformaticians, details can be found in `diann to parameters <https://github.com/bigbio/quantms/blob/dev/bin/prepare_diann_parameters.py>`_.
 
 The second step of the workflow, generate an in-silico spectral library from a FASTA sequence database if predefined transition libraries are not provided.
 The current step is run with the following parameters than can be changed in the commandline:
@@ -91,16 +91,21 @@ The last step of the workflow, summaries the information and then generates repo
 MSstats
 ------------
 
-The output of DIA-NN is exported to MSstats for the downstream analysis by `diann to msstats <https://github.com/bigbio/quantms/blob/dev/bin/diann_convert.py>`_. you can read more about MSstats in :doc:`msstats`.
+The output of DIA-NN is exported to MSstats for downstream analysis by `diann to msstats <https://github.com/bigbio/quantms/blob/dev/bin/diann_convert.py>`_. You can read more about MSstats in :doc:`msstats`.
 
 Triqler
 ------------
 
-The output of DIA-NN is exported to Triqler for the downstream analysis, you can read more about Triqler in :doc:`triqler`.
-The `searchScore` is computed by the dia converter as 1-Q.value. The details can be found `diann to triqler <https://github.com/bigbio/quantms/blob/dev/bin/diann_convert.py>`_.
+The output of DIA-NN is exported to Triqler for downstream analysis; you can read more about Triqler in :doc:`triqler`.
+The `searchScore` is computed by the DIA converter as 1 - Q.value. Details can be found in `diann to triqler <https://github.com/bigbio/quantms/blob/dev/bin/diann_convert.py>`_.
+
+Relevant parameters
+--------------------
+
+- See `DIA-NN <parameters.html#dia-nn>`_ for options such as ``--mass_acc_automatic``, ``--scan_window``, ``--diann_speclib``, ``--diann_normalize``, and mzTab export via ``--enable_diann_mztab``.
 
 Important technical notes
---------------------------
+---------------------------
 
 By 2022, the quantms DIA workflow based on DIA-NN has the following drawbacks:
 

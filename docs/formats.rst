@@ -5,11 +5,13 @@ The quantms is natively based on HUPO-PSI standard file formats:
 
 - `mzML <https://www.psidev.info/mzML>`_: The mzML format is an open, XML-based format for mass spectrometer output files, developed with the full participation of vendors and researchers in order to create a single open format that would be supported by all software.
 
-- `mzTab <https://www.psidev.info/mztab>`_: mzTab is intended as a lightweight supplement to the existing standard mzML to store and represent peptide and protein and identifications together with experimental metadata and basic quantitative information.
+.. _mztab:
+
+- `mzTab <https://www.psidev.info/mztab>`__: mzTab is intended as a lightweight supplement to the existing standard mzML to store and represent peptide and protein identifications together with experimental metadata and basic quantitative information.
 
 - `sdrf <https://github.com/bigbio/proteomics-metadata-standard>`_: The SDRF-Proteomics format describes the sample characteristics and the relationships between samples and data files included in a dataset. The information in SDRF files is organised so that it follows the natural flow of a proteomics experiment.
 
-Apart of this three main file formats, additionally, multiple file formats are used within the workflow between steps and as a final output for downstream analysis including: idXML, consensusXML, MSstats output, etc.
+Apart from these three main file formats, multiple additional formats are used within the workflow between steps and as final outputs for downstream analysis, including: idXML, consensusXML, MSstats output, etc.
 
 Input formats
 ---------------------------
@@ -54,11 +56,10 @@ divided into two categories:
     the MSstats parameters (see the parameter documentation (TODO link) and the chapter on :doc:`MSstats <msstats>` for further
     details).
 
-.. important:: Unequal fractionation's are not supported yet, please remove superfluous fractions in all samples
-    if a run failed or was discarded.
+.. important:: Unequal fractionations are supported from version 1.5.0 onwards.
 
 .. important:: When multiple conditions are under study which cannot be reliably aligned or compared (e.g., due to
-    different instruments, chromatographies, fractionation's, and/or quantification strategies), the user should create
+    different instruments, chromatographies, fractionations, and/or quantification strategies), the user should create
     multiple SDRFs (one for each experiment).
 
 - ``characteristics[biological replicate]``:
@@ -79,7 +80,12 @@ If RAW files are provided, the first step of the identification pipeline
 `converts them into mzML <https://quantms.readthedocs.io/en/latest/identification.html#mass-spectra-processing-raw-conversion>`_.
 In addition, bruker ``.d`` data format is also supported in DIA subworkflow.
 
-.. important:: If you want to load local input spectra files instead of from SDRF or Experimental Design file. Please set `--root_dir` and `--local_input_type` (default mzML) parameters.
+.. important:: If you want to load local input spectra files instead of from SDRF or Experimental Design file, please set `--root_folder` and `--local_input_type` (default: mzML).
+
+Relevant parameters
+-------------------
+
+- See `Input/output options <parameters.html#input-output-options>`_ for ``--input``, ``--outdir``, ``--root_folder``, ``--local_input_type``.
 
 Protein databases
 ~~~~~~~~~~~~~~~~~~
@@ -128,6 +134,8 @@ Multiple files from OpenMS ecosystem are use within quantms to store intermediat
     An xml-based file format to store PSMs, peptide, and protein evidences. More information about the idXML can be
     `found here <https://abibuilder.cs.uni-tuebingen.de/archive/openms/Documentation/nightly/html/classOpenMS_1_1IdXMLFile.html>`__.
 
+.. _consensusxml:
+
 - consensusXML:
     An xml-based file format that extends idXML to include quantification data across multiple runs.
     More information about the consensusXML can be
@@ -136,9 +144,16 @@ Multiple files from OpenMS ecosystem are use within quantms to store intermediat
 The easiest way to parse these files is to use `pyopenms <https://pyopenms.readthedocs.io/en/latest/>`_
 with its `pandas dataframe conversion capabilities <https://pyopenms.readthedocs.io/en/latest/user_guide/export_pandas_dataframe.html>`__.
 
+.. _tab-based-openms-formats:
+
+Tab-based OpenMS formats
+------------------------
+Several OpenMS tools also produce tab-separated files for tables of features, PSMs, and proteins.
+Refer to the OpenMS documentation for details and column descriptions.
+
 |Get help on Slack|   |Report Issue| |Get help on GitHub Forum|
 
-.. |Get help on Slack| image:: http://img.shields.io/badge/slack-nf--core%20%23quantms-4A154B?labelColor=000000&logo=slack
+.. |Get help on Slack| image:: https://img.shields.io/badge/slack-nf--core%20%23quantms-4A154B?labelColor=000000&logo=slack
                    :target: https://nfcore.slack.com/channels/quantms
 
 .. |Report Issue| image:: https://img.shields.io/github/issues/bigbio/quantms

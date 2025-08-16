@@ -1,5 +1,5 @@
 quantms rescoring framework (AI-assisted rescoring of peptide identifications)
-=============================================================
+==============================================================================
 
 quantms DDA workflows DDAplex (:doc:`iso`) and DDA-LFQ (:doc:`lfq`) use multiple search engines (:doc:`msgf`, :doc:`comet`, :doc:`sage`) to identify peptides from mass spectra. The output of these search engines is a list of peptide-spectrum matches (PSMs) along with their corresponding scores, which vary depending on the search engine. 
 
@@ -36,12 +36,14 @@ Core Components
 ~~~~~~~~~~~~~~~
 
 MS2PIP Integration
+
 - **Intelligent Model Selection**: Automatically evaluates and selects the optimal MS2PIP model for each dataset based on fragmentation type and correlation quality
 - **Supported Models**: HCD2019, HCD2021, Immuno-HCD, HCDch2, TMT, iTRAQ, iTRAQphospho, CID, CIDch2, CID-TMT
 - **Adaptive MS2 Tolerance**: Dynamically adjusts MS2 tolerance based on dataset characteristics
 - **Correlation Validation**: Implements robust validation ensuring sufficient correlation with experimental spectra
 
 MS2PIP Features (70+ features)
+
 .. list-table:: MS2PIP Feature Examples
    :header-rows: 1
    :widths: 30 70
@@ -54,18 +56,22 @@ MS2PIP Features (70+ features)
      - IonBPearsonNorm, IonYPearsonNorm
    * - Statistical Measures
      - SpecMseNorm, MinAbsDiffNorm, MeanAbsDiffNorm
+
 AlphaPeptDeep Integration
+
 - **Generic Deep Learning Model**: Leverages advanced neural networks for fragment intensity prediction
 - **Transfer Learning**: Competes with MS2PIP to select the best-performing model
 - **Feature-Rich Output**: Generates comprehensive spectral similarity features
 
 DeepLC Optimization
+
 - **Model Benchmarking**: Automatically compares pretrained vs. retrained models
 - **Per-Run Calibration**: Calibrates models for each run to account for chromatographic variations
 - **MAE-Based Selection**: Selects model with lowest Mean Absolute Error for retention time prediction
 - **Best Peptide Tracking**: Maintains best retention time prediction for each peptide across multiple PSMs
 
 DeepLC Features (6 features)
+
 .. list-table:: DeepLC Features
    :header-rows: 1
    :widths: 35 65
@@ -80,15 +86,18 @@ DeepLC Features (6 features)
      - Difference between observed and predicted
    * - Best variants
      - Best predictions across multiple PSMs
+
 Spectrum-Based Features
 
 Signal Quality Metrics
+
 - **Signal-to-Noise Ratio (SNR)**: Calculates ratio of maximum intensity to background noise
 - **Spectral Entropy**: Quantifies uniformity of peak distribution
 - **TIC Distribution Analysis**: Analyzes distribution of Total Ion Current across peaks
 - **Weighted m/z Standard Deviation**: Estimates spectral complexity through intensity-weighted calculations
 
 Spectrum Quality Features (4 features)
+
 .. list-table:: Spectrum Quality Features
    :header-rows: 1
    :widths: 30 70
@@ -103,6 +112,7 @@ Spectrum Quality Features (4 features)
      - Fraction of total ion current in top peaks
    * - WeightedStdMz
      - Intensity-weighted m/z standard deviation
+
 SAGE Integration
 - **Seamless Feature Import**: Incorporates additional features from SAGE (Spectrum Agnostic Generation of Embeddings)
 - **Feature Validation**: Ensures proper formatting for OpenMS compatibility
@@ -113,7 +123,8 @@ The package implements multiprocessing capabilities for efficient handling of la
 .. note:: The quantms-rescoring package currently supports only MS2 level spectra and requires that input files contain consistent MS levels and dissociation methods.
 
 Feature Generators in quantms-rescoring
---------------------------------------
+---------------------------------------
+
 
 quantms-rescoring uses multiple open-source components to compute additional features for each PSM based on deep-learning algorithms:
 
@@ -122,7 +133,7 @@ quantms-rescoring uses multiple open-source components to compute additional fea
 - **AlphaPeptDeep**: Predicts peptide fragmentation intensity and retention time
 - **Spectrum features**: Computes signal-to-noise ratio, spectral entropy, and other spectrum-derived metrics
 
-Using the parameter ``--feature_generators``, you can specify which feature generators to use. Possible values are ``deeplc``, ``ms2pip``, ``alphapeptdeep``. For ms2pip and alphapeptdeep, the model is specified using the ``--ms2_model`` parameter. To see the supported models, see the :ref:`supported-ms2pip-models` section. If the feature generator is alphapeptdeep, the ``--ms2_model`` MUST be ``generic``. For deeplc, the model is selected automatically. 
+Using the parameter ``--feature_generators``, you can specify which feature generators to use. Possible values are ``deeplc``, ``ms2pip``, ``alphapeptdeep``. For ms2pip and alphapeptdeep, the model is specified using the ``--ms2_model`` parameter. To see the supported models, see the :ref:`supported-ms2pip-models-table` section. If the feature generator is alphapeptdeep, the ``--ms2_model`` MUST be ``generic``. For deeplc, the model is selected automatically. 
 
 .. note:: quantms-rescoring uses the model specified by the generator to compute features. The ms2pip and alphapeptdeep models are mutually exclusive; they cannot be used together.
 
@@ -134,7 +145,7 @@ quantms provides comprehensive control over the rescoring process through the fo
 **Core Rescoring Settings**
 
 - ``--ms2rescore`` (default: ``false``): Enable/disable peptide identification rescoring with LC-MS predictors such as MS²PIP and DeepLC
-- ``--rescore_range`` (default: ``independent_run``): Defines the scope of rescoring:  
+- ``--rescore_range`` (default: ``independent_run``): Defines the scope of rescoring:
   - ``independent_run``: Rescoring performed independently for each run
   - ``by_sample``: Rescoring performed at the sample level
   - ``by_project``: Rescoring performed across the entire project
@@ -145,6 +156,7 @@ quantms provides comprehensive control over the rescoring process through the fo
 - ``--ms2_model_dir`` (default: ``null``): Path to local MS2 prediction model files to avoid repeated downloads
 - ``--find_best_model`` (default: ``true``): Automatically find the best MS2 model for the dataset
 - ``--force_model`` (default: ``false``): Force usage of the specified MS2PIP model without optimization
+
 .. _supported-ms2pip-models:
 
 Supported MS2PIP Models
@@ -160,7 +172,8 @@ Supported MS2PIP Models
 
 .. important:: For optimal results, ensure that your experimental data matches the properties of the selected MS2PIP model in terms of fragmentation method, mass analyzer, and peptide modifications. We recommend to use the parameter ``--find_best_model true`` and ``--force_model false`` which will automatically select the best model for your dataset. 
 
-.. _supported-ms2pip-models:
+.. _supported-ms2pip-models-table:
+
 Supported MS2PIP Models
 -----------------------
 
@@ -246,10 +259,6 @@ For additional details on the main algorithm [DEG2016]_, [BOUW2021]_, please ref
 
 References
 ----------
-
-.. [BUUR2024] Louise M. Buur, Arthur Declercq, Marina Strobl, Robbin Bouwmeester, Sven Degroeve, Lennart Martens, Viktoria Dorfer, and Ralf Gabriels.
-   MS2Rescore 3.0 Is a Modular, Flexible, and User-Friendly Platform to Boost Peptide Identifications, as Showcased with MS Amanda 3.0. Journal of Proteome Research,
-   March 2024
 
 .. [DEG2016] Sven Degroeve, Lennart Martens. MS2PIP: a tool for MS/MS peak intensity prediction. Bioinformatics, 3199–3203,
    September 2013

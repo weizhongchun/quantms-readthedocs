@@ -14,7 +14,7 @@ How and when to contact us where
     just use the guidelines here and we will redirect you.
 
 
-.. |Get help on Slack| image:: http://img.shields.io/badge/slack-nf--core%20%23quantms-4A154B?labelColor=000000&logo=slack
+.. |Get help on Slack| image:: https://img.shields.io/badge/slack-nf--core%20%23quantms-4A154B?labelColor=000000&logo=slack
                    :target: https://nfcore.slack.com/channels/quantms
 
 .. |Report Issue| image:: https://img.shields.io/github/issues/bigbio/quantms

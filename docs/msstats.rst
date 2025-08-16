@@ -16,6 +16,8 @@ MSstats provides workflows for:
 Among these main workflows, MSstats also allows to perform multiple steps of the downstream analysis including: normalization,
 missing values imputation, and differential expression analysis across conditions.
 
+.. _msstats-ready-quantity-tables:
+
 quantms & MSstats
 -------------------
 
@@ -28,8 +30,10 @@ analysis (:doc:`iso`) and the DIA analysis (:doc:`dia`). The following table is 
    P36578,AAAAAAALQAK,"2",NA,"0",L,heart,"1","1","2.240129e08",Prosser_1004.mzML
 
 
-.. note:: The msstats output is stored in the `proteomicslfq` folder for lfq experiments, in the `msstatsconverter` folder for the
-          isobaric (TMT) experiments and in the `diannconvert` folder for dia experiments.
+.. note:: The msstats output is stored in the `proteomicslfq` folder for LFQ experiments, in the `msstatsconverter` folder for the
+          isobaric (TMT) experiments and in the `diannconvert` folder for DIA experiments.
+
+.. _msstats-processed-mztab:
 
 MSstats example snippet
 --------------------------

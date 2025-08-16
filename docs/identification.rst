@@ -93,6 +93,13 @@ After the re-scoring of the peptide identification and combination of the result
 (if multiple search engines are allowed), quantms allows the fdr calculation steps (read more in :doc:`fdr`) and
 optionally the modification sites localization (read more in :doc:`modlocal`). The final results are exported in idXML and csv formats (compatible with Parquet).
 
+Relevant parameters
+-------------------
+
+- See `Database search <parameters.html#database-search>`_ for enzyme, tolerances, and modification options.
+- See `Consensus ID <parameters.html#consensus-id>`_ for multi-engine combination settings.
+- See `PSM re-scoring (general) <parameters.html#psm-re-scoring-general>`_ and `PSM re-scoring (Percolator) <parameters.html#psm-re-scoring-percolator>`_.
+
 References
 ---------------------------
 

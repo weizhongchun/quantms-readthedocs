@@ -159,11 +159,6 @@ details of specific steps in the pipeline.
     intermediate results to provide statistics and summary plots of
     important quality control metrics like (:doc:`pmultiqc`).
 
-
-.. image:: images/quantms.png
-   :width: 450
-   :align: center
-
 References
 --------------------------------
 
