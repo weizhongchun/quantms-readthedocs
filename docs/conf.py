@@ -60,6 +60,11 @@ numfig = True
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
+# Custom CSS files to include
+html_css_files = [
+    'custom.css',
+]
+
 if os.environ.get("READTHEDOCS") == "True":
     # If we are building on ReadTheDocs, we need to download the output file
     # from the GitHub repository.

@@ -1,6 +1,10 @@
 quantms outputs
 ===============
 
+bigbio/quantms: Output
+======================
+
+
 Introduction
 ------------
 
@@ -9,8 +13,43 @@ This document describes the output produced by the pipeline. Most plots are take
 
 The directories listed below will be created in the results directory after the pipeline has finished. All paths are relative to the top-level results directory.
 
+Pipeline overview
+-----------------
+
+
+The pipeline is built using `Nextflow <https://www.nextflow.io/>`__ and processes data using the following steps for DDA-LFQ and DDA-ISO data:
+
+1. (optional) Conversion of spectra data to indexedMzML: Using ThermoRawFileParser if Thermo Raw or using OpenMS' FileConverter if just an index is missing
+2. (optional) Decoy database generation for the provided DB (fasta) with OpenMS
+3. Database search with either MSGF+ and/or Comet through OpenMS adapters
+4. (optional) Performs LC-MS predictors such as MS²PIP and DeepLC to add new peptide spectrum match (PSM) features by MS2Rescore
+5. (optional) Add spectrum signal-to-noise (SNR) features for Percolator rescore
+6. (optional) Merge different MS runs by samples or whole projects
+7. PSM rescoring Percolator
+8. If multiple search engines were chosen, the results are combined with OpenMS' ConsensusID
+9. If multiple search engines were chosen, a combined FDR is calculated
+10. Single run PSM/Peptide-level FDR filtering
+11. If localization of modifications was requested, Luciphor2 is applied.
+12. (**DDA-LFQ**) Protein inference and label-free quantification based on spectral counting or MS1 feature detection, alignment and integration with OpenMS' ProteomicsLFQ. Performs an additional experiment-wide FDR filter on protein (and if requested peptide/PSM-level).
+13. (**DDA-ISO**) Extracts and normalizes isobaric labeling
+14. (**DDA-ISO**) Protein inference using the OpenMS ProteinInference tool. In addition, protein FDR filtering is performed in this step for Isobaric datasets (TMT, iTRAQ).
+15. (**DDA-ISO**) Protein Quantification
+16. Generation of QC reports using pMultiQC, a library for QC proteomics data analysis.
+
+For DIA-LFQ experiments, the workflow is different:
+
+1. RAW data is converted to mzML using the ThermoRawFileParser
+2. DIA-NN is used for identification and quantification of the peptides and proteins
+3. Generation of output files
+4. Generation of QC reports using pMultiQC, a library for QC proteomics data analysis.
+
+As an example, a rough visualization of the DDA identification subworkflow can be seen here:
+
+![quantms LFQ workflow](./images/id-dda-pipeline.png)
+
 Output structure
 ----------------
+
 
 Output will be saved to the folder defined by the parameter `--outdir`. Each step of the workflow exports different files and reports with the specific data, peptide identifications, protein quantifications, etc. Most of the pipeline outputs are `HUPO-PSI <https://www.psidev.info/>`__ standard file formats:
 
@@ -30,11 +69,8 @@ Common directories across all workflows:
 - `pipeline_info/`: Contains Nextflow pipeline information, execution reports, and software versions
 - `sdrf/`: Contains SDRF files, OpenMS configs, and other experimental design files
 - `pmultiqc/`: Contains pMultiQC reports and visualizations
-
   - `multiqc_data/`: Raw data used by pMultiQC
-
   - `multiqc_plots/`: Visualizations in different formats
-
     - `png/`: PNG format plots
     - `svg/`: SVG format plots
     - `pdf/`: PDF format plots
