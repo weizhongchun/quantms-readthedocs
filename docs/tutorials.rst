@@ -79,7 +79,7 @@ Your results will be in the `results/` directory. Key files to check:
       
       <div style="background: #f0f9ff; padding: 15px; border-radius: 6px;">
          <strong style="color: #3b82f6;">📊 Quantification Tables</strong><br>
-         <code>*.mztab.tsv</code><br>
+         <code>*.mztab</code><br>
          <small>Protein and peptide abundances</small>
       </div>
       
