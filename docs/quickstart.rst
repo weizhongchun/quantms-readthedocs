@@ -73,7 +73,7 @@ Key outputs to explore
          
          <div style="background: white; padding: 15px; border-radius: 6px; border: 1px solid #e2e8f0;">
             <strong style="color: #3b82f6;">📊 Results Tables</strong><br>
-            <code style="background: #f1f5f9; padding: 2px 4px; border-radius: 2px;">*_mztab.tsv</code><br>
+            <code style="background: #f1f5f9; padding: 2px 4px; border-radius: 2px;">*.mztab</code><br>
             <small>Peptide and protein quantification</small><br>
             <a href="quantms_output.html" style="color: #3b82f6;">→ Understanding outputs</a>
          </div>
