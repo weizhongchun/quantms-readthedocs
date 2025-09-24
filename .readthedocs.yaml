@@ -22,10 +22,9 @@ sphinx:
   # Fail on all warnings to avoid broken references
   # fail_on_warning: true
 
-# Optionally build your docs in additional formats such as PDF and ePub
-# formats:
-#    - pdf
-#    - epub
+# Explicitly set language to avoid /en/ prefix issues
+# This prevents ReadTheDocs from adding language prefixes to URLs
+# ReadTheDocs will use the canonical URL without language prefix
 
 # Optional but recommended, declare the Python requirements required
 # to build your documentation

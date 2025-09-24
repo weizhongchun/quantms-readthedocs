@@ -25,6 +25,8 @@ author = 'daichengxin, jpfeuffer, timosachenberg, ypriverol'
 # The full version, including alpha/beta/rc tags
 release = '1.6.0'
 
+# Language for this documentation
+language = 'en'
 
 # -- General configuration ---------------------------------------------------
 
