@@ -74,21 +74,21 @@ You can specify which algorithm to use with the ``--mod_localization_algorithm``
    nextflow run bigbio/quantms -r 1.6.0 \
      --input experiment.sdrf.tsv \
      --enable_mod_localization true \
-     --mod_localization_algorithm ascore \
+     --onsite_algorithm ascore \
      -profile docker
 
    # Use PhosphoRS (detailed probabilities)
    nextflow run bigbio/quantms -r 1.6.0 \
      --input experiment.sdrf.tsv \
      --enable_mod_localization true \
-     --mod_localization_algorithm phosphors \
+     --onsite_algorithm phosphors \
      -profile docker
 
    # Use LucXor (with FLR estimation, default)
    nextflow run bigbio/quantms -r 1.6.0 \
      --input experiment.sdrf.tsv \
      --enable_mod_localization true \
-     --mod_localization_algorithm lucxor \
+     --onsite_algorithm lucxor \
      -profile docker
 
 Running All Algorithms
@@ -101,7 +101,7 @@ For comprehensive analysis, you can run all three algorithms and compare results
    nextflow run bigbio/quantms -r 1.6.0 \
      --input experiment.sdrf.tsv \
      --enable_mod_localization true \
-     --compute-all-scores true \
+     --onsite_compute_all_scores true \
      -profile docker
 
 This will add scores from all three algorithms to your output files, allowing you to compare their results.
@@ -450,10 +450,10 @@ Basic Phosphorylation Analysis
      --input phospho_experiment.sdrf.tsv \
      --database human_proteome.fasta \
      --enable_mod_localization true \
-     --mod_localization_algorithm lucxor \
-     --lucxor_fragment_method HCD \
-     --lucxor_fragment_tolerance 0.02 \
-     --lucxor_fragment_error_units Da \
+     --onsite_algorithm lucxor \
+     --onsite_fragment_method HCD \
+     --onsite_fragment_tolerance 0.02 \
+     --onsite_fragment_error_units Da \
      -profile docker
 
 High-Confidence Site Identification
@@ -466,10 +466,10 @@ High-Confidence Site Identification
      --input phospho_experiment.sdrf.tsv \
      --database human_proteome.fasta \
      --enable_mod_localization true \
-     --compute-all-scores true \
-     --fragment-mass-tolerance 0.02 \
-     --fragment-mass-unit Da \
-     --threads 8 \
+     --onsite_compute_all_scores true \
+     --onsite_fragment_tolerance 0.02 \
+     --onsite_fragment_error_units Da \
+     --onsite_threads 8 \
      -profile docker
 
 Large-Scale Dataset
@@ -482,10 +482,9 @@ Large-Scale Dataset
      --input large_phospho_dataset.sdrf.tsv \
      --database proteome.fasta \
      --enable_mod_localization true \
-     --mod_localization_algorithm ascore \
-     --ascore_fragment_tolerance 0.5 \
-     --ascore_max_permutations 8192 \
-     --mod_localization_threads 16 \
+     --onsite_algorithm ascore \
+     --onsite_fragment_tolerance 0.5 \
+     --onsite_threads 16 \
      -profile docker
 
 Frequently Asked Questions
