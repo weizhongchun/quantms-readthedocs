@@ -543,40 +543,29 @@ A: Cite the original algorithm papers and the onsite package:
 Additional Resources
 --------------------
 
-.. raw:: html
+Documentation
+^^^^^^^^^^^^^
 
-   <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin: 30px 0;">
-      
-      <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; border-left: 4px solid #007bff;">
-         <h4 style="margin: 0 0 10px 0; color: #007bff;">📚 Documentation</h4>
-         <ul style="margin: 0; padding-left: 20px;">
-            <li><a href="https://github.com/bigbio/onsite">onsite GitHub Repository</a></li>
-            <li><a href="https://pypi.org/project/pyonsite/">onsite on PyPI</a></li>
-            <li><a href="identification.html">Peptide Identification</a></li>
-            <li><a href="formats.html">Output Formats</a></li>
-         </ul>
-      </div>
-      
-      <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; border-left: 4px solid #28a745;">
-         <h4 style="margin: 0 0 10px 0; color: #28a745;">🔬 Related Topics</h4>
-         <ul style="margin: 0; padding-left: 20px;">
-            <li><a href="fdr.html">False Discovery Rate</a></li>
-            <li><a href="pmultiqc.html">Quality Control</a></li>
-            <li><a href="statistics.html">Statistical Analysis</a></li>
-            <li><a href="identification.html">Peptide Identification</a></li>
-         </ul>
-      </div>
-      
-      <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; border-left: 4px solid #ffc107;">
-         <h4 style="margin: 0 0 10px 0; color: #e68900;">💬 Get Help</h4>
-         <ul style="margin: 0; padding-left: 20px;">
-            <li><a href="https://github.com/bigbio/onsite/issues">Report Issues</a></li>
-            <li><a href="https://nfcore.slack.com/channels/quantms">Slack Channel</a></li>
-            <li><a href="troubleshooting.html">Troubleshooting Guide</a></li>
-            <li><a href="faq.html">FAQ</a></li>
-         </ul>
-      </div>
-   </div>
+- `onsite GitHub Repository <https://github.com/bigbio/onsite>`_
+- `onsite on PyPI <https://pypi.org/project/pyonsite/>`_
+- :doc:`identification` - Peptide Identification
+- :doc:`formats` - Output Formats
+
+Related Topics
+^^^^^^^^^^^^^^
+
+- :doc:`fdr` - False Discovery Rate
+- :doc:`pmultiqc` - Quality Control
+- :doc:`statistics` - Statistical Analysis
+- :doc:`identification` - Peptide Identification
+
+Get Help
+^^^^^^^^
+
+- `Report Issues <https://github.com/bigbio/onsite/issues>`_
+- `Slack Channel <https://nfcore.slack.com/channels/quantms>`_
+- :doc:`troubleshooting` - Troubleshooting Guide
+- :doc:`faq` - FAQ
 
 References
 ----------
